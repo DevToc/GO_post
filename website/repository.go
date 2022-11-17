@@ -1,6 +1,16 @@
 package website
 
-import "context"
+import (
+	"context"
+	"errors"
+)
+
+var (
+	ErrDuplicate    = errors.New("record already exists")
+	ErrNotExst      = errors.New("row does not exits")
+	ErrUpdateFailed = errors.New("update failed")
+	ErrDeleteFailed = errors.New("delete failed")
+)
 
 type Repository interface {
 	Migrate(ctx context.Context) error
